@@ -1,3 +1,4 @@
+from data import book_data_populate
 class Book():
     usertype="basic_user"
        
@@ -32,9 +33,21 @@ class Shelf():
         if access:
             self.shelf.remove(book)
     def show_catalog(self):
-        print(self.shelf)
+        for book in self.shelf:
+            print(book.name)
+            
     def give_book_count(self):
         print(len(self.shelf))
+    def populate_books(self):
+            temp_shelf=[]
+            for book in book_data_populate:
+                book_1=Book(book['name'],book["isbn"],book['author'])
+                temp_shelf.append(book_1)
+            for book in temp_shelf:
+                self.shelf.append(book)
+            
+            
+            
 class User():
     def __init__(self,username):
         self.role='reader'
