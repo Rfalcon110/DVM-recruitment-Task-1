@@ -14,10 +14,11 @@ class Book():
     
     def return_book(self):
         self.owner="library"
+        print("success")
 
     def reserve_book(self):
         self.owner="reserved"
-
+        print("success")
 
 class Shelf():
     shelf=[]
