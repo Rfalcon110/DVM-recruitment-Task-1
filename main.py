@@ -49,15 +49,17 @@ def populate_shelf(input_genre):
 def reserve(user):#reserve a book
     name=input("which book do u wish to reserve?")
     for book in library:
-        if name==book.name:
+        if name==book.name and book.owner=='library':
             book.reserve_book()
+            print("successfully reserved the book")
             logging.info(f"{name} reserved by {user}")        
 
 def return_book(user):#returning  a book
     name=input("which book do u wish to return?")
     for book in library:
-        if name==book.name:
+        if name==book.name and book.owner!='library':
             book.return_book()
+            print("sucessfuly returned the book")
             logging.info(f"{name} returned by {user}")        
            
 
@@ -65,7 +67,7 @@ def return_book(user):#returning  a book
 def borrow(user):#borrowing a book
     name=input("which book do u wish to borrow?")
     for book in library:
-        if name==book.name:
+        if name==book.name and book.owner=="library":
             book.borrow_book(user)
             logging.info(f"{name} borrowed by {user}")        
         
